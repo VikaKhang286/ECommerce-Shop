@@ -1,0 +1,117 @@
+@model IEnumerable<Product>
+@{
+  ViewData["Title"] = "eCommerce Shop";
+}
+<main>
+  <div class="product-container my-4">
+    <div class="container">
+      <div class="sidebar  has-scrollbar" data-mobile-menu>
+        <div class="sidebar-category">
+          <div class="sidebar-top">
+            <h2 class="sidebar-title">Category</h2>
+            <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <a href="/home/index" class="sidebar-submenu-title">All Products</a>
+          <ul class="sidebar-menu-category-list">
+            @foreach (Category item in ViewBag.Categories)
+            {
+              <li class="sidebar-menu-category">
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+                  <div class="menu-title-flex">
+                    <img src="/images/icons/@item.Icon" alt="@item.CategoryName" width="20" height="20" class="menu-title-img">
+                    <p class="menu-title">@item.CategoryName</p>
+                  </div>
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+                </button>
+                @if (item.Children != null)
+                {
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    @foreach (Brand sub in item.Children)
+                    {
+                      <li class="sidebar-submenu-category">
+                        <a href="/home/index?brandId=@sub.BrandId" class="sidebar-submenu-title">
+                          <p class="product-name">@sub.BrandName</p>
+                          <data value="@sub.ItemCount" class="ItemCount" title="Available ItemCount">@sub.ItemCount</data>
+                        </a>
+                      </li>
+                    }
+                  </ul>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="product-main">
+          <h2 class="title">New Products</h2>
+          <div class="product-grid">
+            @foreach (Product item in Model)
+            {
+              <div class="showcase">
+                <div class="showcase-banner">
+                  <img src="/images/products/@item.ImageUrl" alt="@item.Title" width="300" class="product-img default">
+                  <img src="/images/products/@item.ImageUrl" alt="@item.Title" width="300" class="product-img hover">
+                  <div class="showcase-actions">
+                    <form action="/cart/save" class="frmCart" method="post">
+                        <input type="hidden" name="productId" value="@item.ProductId">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn-action">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </form>
+                  </div>
+                </div>
+                <div class="showcase-content">
+                  <p class="showcase-category">@item.BrandName</p>
+                  <a href="/home/details/@item.ProductId">
+                    <h3 class="showcase-title">@item.Title</h3>
+                  </a>
+                  <div class="price-box">
+                    <p class="price">$@item.SaleOff</p>
+                    <del>$@item.Price</del>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>    
+          <div class="pagination-container">
+            @{
+              int currentPage = ViewBag.CurrentPage;
+              int totalPages = ViewBag.TotalPages;
+              short? brandId = ViewBag.SelectedBrandId;
+            }
+            @if(totalPages > 1){
+            @for (int i = 1; i <= totalPages; i++)
+            {
+              <a class="page-btn @(i == currentPage ? "active-page" : "")" href="/home/index?page=@i&brandId=@brandId">
+                @i
+              </a>
+              
+            }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+@section Scripts {
+<script>
+$('.frmCart').submit(function(ev) {
+  ev.preventDefault();
+  let pid = $(this).find('[name=productId]').val();
+  let qty = $(this).find('[name=quantity]').val();
+  $.post('/cart/save', { productId: pid, quantity: qty },
+    function() {   
+      window.location.href = "/cart";
+    }
+  );
+});
+</script>
+}

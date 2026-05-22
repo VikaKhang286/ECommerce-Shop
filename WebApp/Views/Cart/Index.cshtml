@@ -1,0 +1,51 @@
+@model IEnumerable<Cart>
+
+@{
+    ViewData["Title"] = "Cart - eCommerce Shop";
+    decimal total = 0;
+}
+
+<h1 class="mb-4">Shopping Cart</h1>
+
+<table class="table table-bordered align-middle">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th width="180">Quantity</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var item in Model)
+        {
+            decimal sub = item.SaleOff * item.Quantity;
+            total += sub;
+            <tr>
+                <td width="120">
+                    <img src="/images/products/@item.ImageUrl" class="img-fluid">
+                </td>
+                <td>@item.Title</td>
+                <td>$@item.SaleOff</td>
+                <td>
+                    <form action="/cart/update" method="post" class="d-flex gap-2">
+                        <input type="hidden" name="cartId" value="@item.CartId">
+                        <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control">
+                        <button class="btn btn-warning">Update</button>
+                    </form>
+                </td>
+                <td>$@sub</td>
+                <td>
+                    <a href="/cart/delete/@item.CartId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="text-end">
+    <h3>Total: <span class="text-danger">$@total</span></h3>
+    <a href="/checkout" class="btn btn-dark btn-lg">Checkout</a>
+</div>

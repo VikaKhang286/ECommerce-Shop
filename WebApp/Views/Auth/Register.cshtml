@@ -1,0 +1,27 @@
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register - eCommerce Shop";
+}
+<h1>Register</h1>
+
+<div class="row">
+    <form method="post" class="col-4">
+        <div class="mb-3">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input asp-for="Password" type="password" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Given Name</label>
+            <input asp-for="GivenName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Surname</label>
+            <input asp-for="Surname" class="form-control">
+        </div>
+        <button class="btn btn-primary">Register</button>
+    </form>
+</div>

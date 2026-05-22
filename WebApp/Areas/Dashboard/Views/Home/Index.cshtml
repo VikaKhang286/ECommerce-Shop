@@ -1,0 +1,70 @@
+@{
+    ViewData["Title"] = "Admin Page - eCommerce Shop";
+}
+<div>
+    <h1>Admin Page</h1>
+    <div class="card shadow my-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Admin</h6>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Email</th>
+                        <th>Given Name</th>
+                        <th>Surname</th>
+                        <th>Name</th>
+                        <th>Register Date</th>
+                        <th>Login Date</th>
+                    </tr>
+                </thead>
+                <tbody id="rs">
+                    @foreach (Member item in ViewBag.Members){
+                        @if(item.Role == Role.Admin){
+                        <tr>
+                            <td class="text-break">@item.Email</td>
+                            <td>@item.GivenName</td>
+                            <td>@item.Surname</td>
+                            <td>@item.Name</td>
+                            <td>@item.RegisterDate?.ToString("dd/MM/yyyy")</td>
+                            <td>@item.LoginDate?.ToString("hh:mm:ss dd/MM/yyyy")</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card shadow my-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Members</h6>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Register Date</th>
+                        <th>Login Date</th>
+                    </tr>
+                </thead>
+                <tbody id="rs">
+                    @foreach (Member item in ViewBag.Members){
+                        @if(item.Role != Role.Admin){
+                        <tr>
+                            <td class="text-break">@item.Email</td>
+                            <td>@item.Name</td>
+                            <td>@item.Role</td>
+                            <td>@item.RegisterDate?.ToString("dd/MM/yyyy")</td>
+                            <td>@item.LoginDate?.ToString("hh:mm:ss dd/MM/yyyy")</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

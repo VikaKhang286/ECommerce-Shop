@@ -1,0 +1,39 @@
+@model Product
+@{
+    ViewData["Title"] = "Create Product - Admin Page - eCommerce Shop";
+}
+<h1>Create Product</h1>
+<div class="row">
+    <form method="post" enctype="multipart/form-data" class="col-4">
+        <div class="mb-3">
+            <label>Brand</label>
+            <select asp-for="BrandId" class="form-select">
+                @foreach(Brand item in ViewBag.Brands)
+                {
+                    <option value="@item.BrandId">@item.BrandName</option>
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Title</label>
+            <input asp-for="Title" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Price</label>
+            <input asp-for="Price" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>SaleOff</label>
+            <input asp-for="SaleOff" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Image</label>
+            <input type="file" name="imageFile" class="form-control" accept=".jpg,.jpeg,.png,.webp,.gif">
+            @if(ViewBag.Message != null){
+                <div class="alert alert-danger">@ViewBag.Message</div>
+            }
+        </div>
+        <button class="btn btn-primary">Save</button>
+        <a href="/dashboard/product" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

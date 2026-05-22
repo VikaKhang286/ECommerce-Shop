@@ -1,0 +1,58 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Product Management - Admin Page - eCommerce Shop";
+}
+<h1>Product Management</h1>
+<a href="/dashboard/product/create" class="btn btn-primary mb-3">Add Product</a>
+<form method="get" class="row mb-3">
+    <div class="col-4">
+        <input type="text" name="keyword" value="@ViewBag.Keyword" class="form-control" placeholder="Search by title">
+    </div>
+    <div class="col-3">
+        <select name="sort" class="form-select">
+            <option value="title_asc" selected="@(ViewBag.Sort == "title_asc")">Title ASC</option>
+            <option value="title_desc" selected="@(ViewBag.Sort == "title_desc")">Title DESC</option>
+            <option value="price_asc" selected="@(ViewBag.Sort == "price_asc")">Price ASC</option>
+            <option value="price_desc" selected="@(ViewBag.Sort == "price_desc")">Price DESC</option>
+        </select>
+    </div>
+    <div class="col-2"><button class="btn btn-dark">Search</button>
+    </div>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>SaleOff</th>
+            <th width="160">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="/images/products/@item.ImageUrl" width="80">
+                </td>
+                <td>@item.Title</td>
+                <td>@item.BrandName</td>
+                <td>$@item.Price</td>
+                <td>$@item.SaleOff</td>
+                <td>
+                    <a href="/dashboard/product/edit/@item.ProductId" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/dashboard/product/delete/@item.ProductId" class="btn btn-danger btn-sm" onclick="return confirm('Delete product?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-flex justify-content-center gap-2">
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        <a href="?page=@i&keyword=@ViewBag.Keyword&sort=@ViewBag.Sort" class="btn @(i == ViewBag.CurrentPage ? "btn-dark" : "btn-outline-dark")">@i</a>
+    }
+
+</div>

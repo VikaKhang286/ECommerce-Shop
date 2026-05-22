@@ -1,0 +1,35 @@
+@model IEnumerable<Cart>
+@{
+    ViewData["Title"] = "Checkout - eCommerce Shop";
+    decimal total = 0;
+}
+
+<h1 class="mb-4">Invoice</h1>
+<div class="card p-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                decimal sub = item.SaleOff * item.Quantity;
+                total += sub;
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.SaleOff</td>
+                    <td>$@sub</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="mt-4 text-end">
+        <h4>Grand Total: <span class="text-danger">$@total</span></h4>
+    </div>
+</div>

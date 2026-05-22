@@ -17,20 +17,20 @@
 - **Các trang API**: Xem các dữ liệu JSON của user, role, auth.
 
 ### Hình ảnh dự án
-<img width="1440" height="900" alt="Home Page" src="https://github.com/user-attachments/assets/4cb30ddf-9771-40e4-97b3-f33827b32b20" />
-<img width="1440" height="900" alt="Register" src="https://github.com/user-attachments/assets/0de5a4cd-3b8b-4510-8824-20aa03256780" />
-<img width="1440" height="900" alt="Login" src="https://github.com/user-attachments/assets/324e2d25-10c5-489f-bf24-c15ebd591dbd" />
-<img width="1440" height="900" alt="Detail" src="https://github.com/user-attachments/assets/e0c84e66-33c3-4f6f-a13e-56bd27de8e5b" />
-<img width="1440" height="900" alt="Cart" src="https://github.com/user-attachments/assets/58599e58-bfff-4969-a859-980969005e01" />
-<img width="1440" height="900" alt="Invoice" src="https://github.com/user-attachments/assets/a922c6db-3b80-42f4-810f-09945bb37800" />
+<img width="1440" height="900" alt="Home Page" src="https://github.com/user-attachments/assets/19b49cf3-3a6d-40d5-b21b-95c70bd7584a" />
+<img width="1440" height="900" alt="Register" src="https://github.com/user-attachments/assets/412850d5-81ec-4074-b5aa-307b9286dab6" />
+<img width="1440" height="900" alt="Login" src="https://github.com/user-attachments/assets/0df7e08c-1173-4bfa-a4ed-cf50478d4460" />
+<img width="1440" height="900" alt="Detail" src="https://github.com/user-attachments/assets/1ce7901c-0dbc-4de5-9a88-6ff5b54c1996" />
+<img width="1440" height="900" alt="Cart" src="https://github.com/user-attachments/assets/1e66e0be-51c3-42ca-8f6f-36b2d9cfd458" />
+<img width="1440" height="900" alt="Invoice" src="https://github.com/user-attachments/assets/ed4c2e79-6c17-4752-856a-005cb70c9b5b" />
 
-<img width="1440" height="900" alt="Admin Page" src="https://github.com/user-attachments/assets/bf8321bc-0509-40c6-b11e-f9b47a891436" />
-<img width="1440" height="900" alt="Role - Admin Page" src="https://github.com/user-attachments/assets/20b40461-ec3a-4bb4-b334-618fa3f81304" />
-<img width="1440" height="900" alt="Product Management - Admin Page" src="https://github.com/user-attachments/assets/4f63d41f-d630-49c7-86b7-40318a622883" />
-<img width="1440" height="900" alt="Create Product - Admin Page" src="https://github.com/user-attachments/assets/1aa67e9d-4503-4f5c-bcb2-5b165041fccd" />
-<img width="1440" height="900" alt="Edit Product - Admin Page" src="https://github.com/user-attachments/assets/be676873-b8a4-414b-a9d7-dd6813e554a9" />
+<img width="1440" height="900" alt="Admin Page" src="https://github.com/user-attachments/assets/3152d246-2387-4261-8bf9-a3e8edcf90da" />
+<img width="1440" height="900" alt="Role - Admin Page" src="https://github.com/user-attachments/assets/836eaf23-189e-48e4-969b-c8f9e0da9883" />
+<img width="1440" height="900" alt="Product Management - Admin Page" src="https://github.com/user-attachments/assets/1b3fdddf-413b-4cd6-a6fc-865e28202adf" />
+<img width="1440" height="900" alt="Create Product - Admin Page" src="https://github.com/user-attachments/assets/e97ce042-74be-4566-9cc1-d1fc3b99ca43" />
+<img width="1440" height="900" alt="Edit Product - Admin Page" src="https://github.com/user-attachments/assets/ee24a06d-9dcf-4e22-be1d-dafb29586b2e" />
 
-<img width="1440" height="900" alt="All Members API" src="https://github.com/user-attachments/assets/6b959a3f-83b9-4152-b922-efe5a1c367e1" />
-<img width="1440" height="900" alt="Member API" src="https://github.com/user-attachments/assets/a45dacc0-27de-45cb-84a2-22bd68ede908" />
-<img width="1440" height="900" alt="Auth Details API" src="https://github.com/user-attachments/assets/e538cd09-70d4-44ae-90a2-d208c6bb3f02" />
-<img width="1440" height="900" alt="Role API" src="https://github.com/user-attachments/assets/9fbc4fb6-b924-4942-a12b-dc791d0dad18" />
+<img width="1440" height="900" alt="All Members API" src="https://github.com/user-attachments/assets/56eecf95-e365-4057-8566-bf2febd55e43" />
+<img width="1440" height="900" alt="Member API" src="https://github.com/user-attachments/assets/aecc9c67-5faf-4416-8312-47709838b44b" />
+<img width="1440" height="900" alt="Auth Details API" src="https://github.com/user-attachments/assets/b0183ee9-f89e-4314-90f7-daf520a8a08c" />
+<img width="1440" height="900" alt="Role API" src="https://github.com/user-attachments/assets/3134690c-77a5-45f2-8d11-eccf5eca69ac" />
